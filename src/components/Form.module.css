@@ -1,0 +1,72 @@
+.form {
+	margin: 3rem auto;
+	width: 100%;
+	max-width: 55rem;
+	border-radius: 4px;
+	background-color: #0b0c09;
+	resize: vertical;
+	/* padding: 4rem; */
+	text-align: left;
+	color: white;
+	padding: 12px;
+}
+
+.form label {
+	display: block;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	font-size: 30px;
+	text-align: center;
+}
+
+.form :focus {
+	border: 3px solid #555;
+	width: 100%;
+}
+/* .form input {
+	font: inherit;
+	background-color: #f1e1fc;
+	color: #38015c;
+	/* border: 2px solid rgb(238, 255, 0);
+	border-radius: 4px; */
+/* width: ;
+	text-align: left;
+	padding: 0.4rem;
+} */
+.form input {
+	width: 130px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	text-rendering: auto;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	transition: width 0.4s ease-in-out;
+}
+.form button {
+	font: inherit;
+	cursor: pointer;
+	background-color: #f1f1f1;
+	border: 1px solid #8a2b06;
+	color: rgb(19, 16, 16);
+	padding: 0.35rem 2rem;
+	border-radius: 20px;
+	font-weight: bold;
+	margin: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.form button:hover,
+.form button:active {
+	background-color: #641e03;
+	border-color: #641e03;
+}

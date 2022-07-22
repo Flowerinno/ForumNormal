@@ -1,0 +1,7 @@
+.li {
+    list-style: circle outside;
+    border: 2px solid #000;
+    border-radius: 15px;
+    border-width: 1px;
+   
+}

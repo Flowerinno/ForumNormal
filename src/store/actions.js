@@ -1,4 +1,4 @@
-import {ISLOGGEDIN, REMOVE, ADDPOST, DELETECOMMENT} from "./actionTypes";
+import {ISLOGGEDIN, REMOVE, ADDPOST, DELETECOMMENT, SAVE} from "./actionTypes";
 
 export function isLoggedIn() {
 	return {
@@ -21,5 +21,11 @@ export function addPost() {
 export function deleteComment() {
 	return {
 		type: DELETECOMMENT,
+	};
+}
+
+export function save() {
+	return {
+		type: SAVE,
 	};
 }

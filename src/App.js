@@ -1,23 +1,25 @@
 import MainHeader from "./UI/MainHeader";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/login/LoginPage";
 import {Route, Redirect, Switch} from "react-router-dom";
 import {useSelector} from "react-redux/es/exports";
-import PostsOverview from "./pages/PostsOverview";
-import UserProfile from "./pages/UserProfile";
-import NewPostForm from "./pages/NewPostForm";
+import PostsOverview from "./pages/postsOverview/PostsOverview";
+import UserProfile from "./pages/userProfile/UserProfile";
+import NewPostForm from "./pages/newPost/NewPostForm";
+import LoggingObserver from "./components/LoggingObserver";
 
 function App() {
-	const isLoggedIn = useSelector((state) => state.isLoggedIn);
+	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
 
 	
 	return (
-		<div className="body">
+		<div>
+			<LoggingObserver />
 			<div>
 				<MainHeader />
 			</div>
 			<Switch>
-				<Route path="/" exact>
-					<Redirect to="/login" />
+				<Route path='/' exact>
+					 <Redirect to="/login" />
 				</Route>
 				{!isLoggedIn && (
 					<Route path="/login" exact>

@@ -1,0 +1,43 @@
+.div {
+	border: 2px solid grey;
+	width: 60%;
+	
+	border-radius: 20px;
+	
+}
+
+.section {
+	background: rgb(19, 13, 5);
+	background-color: rgb(252, 252, 252);
+	border-radius: 20px;
+	/* padding: 10px; */
+	
+	/* line-height: 0.7em; */
+}
+
+.section button {
+	display: flex;
+	-ms-flex-align: start;
+	justify-content: space-between;
+	margin: auto;
+	
+}
+
+.section h1 {
+	
+	margin-left: 50px;
+	
+}
+
+.section p {
+	padding: 20px;
+	
+}
+
+.section img {
+	width: 50px;
+	border-radius: 20px;
+	margin-top: 25px ;
+	position: fixed;
+	
+}

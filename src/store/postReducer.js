@@ -1,29 +1,9 @@
 const initialState = {
-	posts: [
-		{
-			title: "Poroshenko",
-			content: "Loh",
-			id: 1,
-			comments: [],
-		},
-	],
-
-	isLoggedIn: false,
-	enteredName: "",
-	image: null,
-	enteredTitle: "",
-	enteredContent: "",
+	posts: [],
 };
 
-function Reducer(state = initialState, action) {
+function PostReducer(state = initialState, action) {
 	switch (action.type) {
-		case "ISLOGGEDIN":
-			return {
-				...state,
-				isLoggedIn: true,
-				enteredName: action.name,
-				image: action.image,
-			};
 		case "REMOVE": {
 			const id = action.id;
 			return {...state, posts: state.posts.filter((item) => item.id !== id)};
@@ -31,8 +11,9 @@ function Reducer(state = initialState, action) {
 		case "ADDPOST": {
 			const data = {
 				title: action.title,
-				content: action.content,
+				enteredContent: action.enteredContent,
 				id: Math.random(),
+				comments: [],
 			};
 			return {
 				...state,
@@ -41,11 +22,10 @@ function Reducer(state = initialState, action) {
 		}
 		case "ADDCOMMENT": {
 			const commentData = {
-				name: action.name,
+				loginName: action.loginName,
 				content: action.content,
 				id: Math.random(),
-				postId: action.postId
-				
+				postId: action.postId,
 			};
 			let searchPost;
 			for (let post of state.posts) {
@@ -57,6 +37,7 @@ function Reducer(state = initialState, action) {
 				...searchPost,
 				comments: [...searchPost.comments, commentData],
 			};
+
 			return {
 				...state,
 				posts: state.posts.map((post) => {
@@ -70,14 +51,31 @@ function Reducer(state = initialState, action) {
 
 		case "DELETECOMMENT": {
 			const id = action.id;
+			const postId = action.postId;
+			let searchPost;
+			for (let post of state.posts) {
+				if (postId === post.id) {
+					searchPost = post;
+				}
+			}
+			let updatedPost = {
+				...searchPost,
+				comments: searchPost.comments.filter((item) => item.id !== id),
+			};
 			return {
 				...state,
-				comments: state.comments.filter((item) => item.id !== id),
+				posts: state.posts.map((post) => {
+					if (post.id !== updatedPost.id) {
+						return post;
+					}
+					return updatedPost;
+				}),
 			};
 		}
+
 		default:
 			return state;
 	}
 }
 
-export default Reducer;
+export default PostReducer;

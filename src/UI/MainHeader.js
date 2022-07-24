@@ -24,7 +24,7 @@ const MainHeader = (props) => {
 					<li className={classes.logo}></li>
 				</ul>
 				<Link 
-					className={classes.middle}
+
 					style={{textDecoration: "none"}}
 					to={isLoggedIn ? "/posts-overview" : "/login"}
 				>
@@ -32,7 +32,7 @@ const MainHeader = (props) => {
 				</Link>
 				<ul className={classes.ul2}>
 					<li>
-						<NavLink to="/posts-overview">Posts overview</NavLink>
+						{isLoggedIn && <NavLink to="/posts-overview">Posts overview</NavLink>}
 
 						{isLoggedIn && <NavLink to="/new-post">New Post</NavLink>}
 						{isLoggedIn && (

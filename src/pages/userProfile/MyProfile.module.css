@@ -3,7 +3,7 @@
 	display: flex;
 	justify-content: center;
 }
-.form {
+#my-profile-content {
 	padding: 20px;
 	border: 1px solid black;
 	text-align: center;
@@ -13,14 +13,14 @@
 	font-size: 25px;
 }
 
-.form img {
+#my-profile-content img {
 	width: 150px;
 	border: 2px solid black;
 	padding: 20px;
 	border-radius: 20px;
 }
 
-.form input {
+#my-profile-content input {
 	border: none;
 	border-bottom: 2px solid #494844;
 	border-bottom-right-radius: 0;
@@ -34,7 +34,7 @@
 	width: 50%;
 
 }
-.form label {
+#my-profile-content label {
 	color: black;
 	font-size: 25px;
 	text-align: left;
@@ -56,10 +56,11 @@
 	
 }
 
-.button1 {
+.btn {
 	border-radius: 10px;
 	margin-right: 10px;
-	
+	background-color: black;
+
 	
 }
 
@@ -67,3 +68,4 @@
 	border-radius: 10px;
 	margin-left: 20px;
 }
+

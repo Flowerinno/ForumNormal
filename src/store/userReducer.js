@@ -25,7 +25,7 @@ const UserReducer = (state = initialState, action) => {
 			}
 			return {
 				...state,
-				...updated,
+				...updated
 			};
 		}
 		case "LOGOUT": {

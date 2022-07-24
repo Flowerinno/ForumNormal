@@ -29,16 +29,12 @@
 	/* padding: 20px 20px 0 0; */
 }
 
-.middle {
-	
-}
 .ul2 {
 	text-align: right;
 	display: flex;
 	justify-content: right;
 	margin: 0;
 	width: 40%;
-	
 }
 
 .nav a {

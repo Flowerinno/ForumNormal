@@ -39,7 +39,7 @@ const Login = () => {
 			});
 	};
 	return (
-		<form className={classes.form}>
+		<form className={classes.form} onSubmit={submitHandler}>
 			<header className={classes.header}>Login</header>
 			<div>
 				<input
@@ -58,14 +58,15 @@ const Login = () => {
 					style={{fontSize: "15px"}}
 					ref={imageInputRef}
 					onChange={handleFileInputChange}
-					id="avatar"
-					name="avatar"
 					hidden
+					name='avatar'
+					id='avatar'
+
 				/>
 
 				<img src={base64} alt=""></img>
 			</div>
-			<button onClick={submitHandler}>Log in</button>
+			<button >Log in</button>
 		</form>
 	);
 };

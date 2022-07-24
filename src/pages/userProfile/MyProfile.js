@@ -1,8 +1,15 @@
 import {useRef, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import classes from "./MyProfile.module.css";
-import {save} from "../../store/actions";
+import "./MyProfile.module.css";
+import { Button } from 'react-bootstrap';
 import getBase64 from "../../services/ImageService";
+
+
+// todo: remove
+const classes = {
+	
+};
+
 
 const MyProfile = () => {
 	const [base64, setBase64] = useState();
@@ -20,14 +27,11 @@ const MyProfile = () => {
 	};
 
 	const handleFileInputChange = (e) => {
-		console.log(e.target.files[0]);
-
 		let file = e.target.files[0];
 
 		getBase64(file)
 			.then((result) => {
 				file["base64"] = result;
-
 				setBase64(result);
 			})
 			.catch((err) => {
@@ -35,22 +39,22 @@ const MyProfile = () => {
 			});
 	};
 	const enteredImage = useSelector((state) => state.User.image);
+	
 	return (
-		<div className={classes.overall}>
-			<form className={classes.form}>
-				<img src={enteredImage} alt="Card cap" />
+		<div id='my-profile-content' className={classes.overall}>
+			<Button>JOPA</Button>
 				<div>
+					<img src={enteredImage} alt="Card cap" />
 					<input
 						type="text"
 						ref={nameInputRef}
 						placeholder="Change your name"
 					/>
 					<input
-						id="avatar-change"
-						name="avatar-change"
 						type="file"
 						onChange={handleFileInputChange}
-						hidden
+						id='avatar-change'
+						name='avatar-change'
 					/>
 					<label htmlFor="avatar-change">Change your avatar</label>
 					<div className={classes.buttons}>
@@ -62,7 +66,7 @@ const MyProfile = () => {
 						</button>
 					</div>
 				</div>
-			</form>
+
 		</div>
 	);
 };

@@ -5,12 +5,8 @@ import {useSelector} from "react-redux/es/hooks/useSelector";
 
 
 const Posts = (props) => {
-
 	const data = useSelector((state) => state.Post.posts);
 
-	// const sumbit = () => {
-	// 	dispatch({type: "ADDCOMMENT", name: "alex", content: "loh", postId: 1});
-	// };
 
 
 	return (

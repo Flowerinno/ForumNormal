@@ -8,9 +8,9 @@ import NewPostForm from "./pages/newPost/NewPostForm";
 import LoggingObserver from "./components/LoggingObserver";
 
 function App() {
+	const state = useSelector(state => state);
 	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
-
-	
+	console.log(state);
 	return (
 		<div>
 			<LoggingObserver />
@@ -18,8 +18,8 @@ function App() {
 				<MainHeader />
 			</div>
 			<Switch>
-				<Route path='/' exact>
-					 <Redirect to="/login" />
+				<Route path="/" exact>
+					<Redirect to="/login" />
 				</Route>
 				{!isLoggedIn && (
 					<Route path="/login" exact>

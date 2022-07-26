@@ -11,7 +11,7 @@ const UserReducer = (state = initialState, action) => {
 				...state,
 				isLoggedIn: true,
 				loginName: action.loginName,
-				image: action.image,
+
 			};
 		case "SAVE": {
 			const userName = action.userName;

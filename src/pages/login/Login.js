@@ -1,10 +1,11 @@
 import React, {useState, useRef} from "react";
 import classes from "./Login.module.css";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux/es/hooks/useDispatch";
 import getBase64 from "../../services/ImageService";
 const Login = () => {
 	const [base64, setBase64] = useState();
+
 	const dispatch = useDispatch();
 	const nameInputRef = useRef();
 	const imageInputRef = useRef();
@@ -40,7 +41,7 @@ const Login = () => {
 	};
 	return (
 		<form className={classes.form} onSubmit={submitHandler}>
-			<header className={classes.header}>Login</header>
+			<h2 className={classes.h2}>Login</h2>
 			<div>
 				<input
 					required
@@ -67,6 +68,9 @@ const Login = () => {
 				<img src={base64} alt=""></img>
 			</div>
 			<button >Log in</button>
+			<div className={classes.link}>
+				<Link to='/signup'>Sign up</Link>
+			</div>
 		</form>
 	);
 };

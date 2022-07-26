@@ -6,6 +6,7 @@ import PostsOverview from "./pages/postsOverview/PostsOverview";
 import UserProfile from "./pages/userProfile/UserProfile";
 import NewPostForm from "./pages/newPost/NewPostForm";
 import LoggingObserver from "./components/LoggingObserver";
+import SignupPage from "./pages/singup/SignupPage";
 
 function App() {
 	const state = useSelector(state => state);
@@ -19,13 +20,18 @@ function App() {
 			</div>
 			<Switch>
 				<Route path="/" exact>
-					<Redirect to="/login" />
+					<Redirect to="/signup" />
+				</Route>
+
+				<Route path='/signup' exact>
+					<SignupPage />
 				</Route>
 				{!isLoggedIn && (
 					<Route path="/login" exact>
 						<LoginPage />
 					</Route>
 				)}
+
 				{isLoggedIn && (
 					<Route path="/posts-overview" exact>
 						<PostsOverview />

@@ -9,9 +9,9 @@ import LoggingObserver from "./components/LoggingObserver";
 import SignupPage from "./pages/singup/SignupPage";
 
 function App() {
-	const state = useSelector(state => state);
+	
 	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
-	console.log(state);
+
 	return (
 		<div>
 			<LoggingObserver />

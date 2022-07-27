@@ -13,17 +13,16 @@ const Form = (props) => {
 		e.preventDefault();
 		const title = enteredTitle.current.value;
 		const content = enteredContent.current.value;
-		dispatch({type: "ADDPOST", title, enteredContent : content});
+		dispatch({type: "ADDPOST", title, enteredContent: content});
 		history.push("/posts-overview");
-
 	};
 
 	return (
 		<React.Fragment>
 			<form onSubmit={submitHandler} className={classes.form}>
-				<label htmlFor="title">Post Title</label>
+				<h2 htmlFor="title">Post Title</h2>
 				<input ref={enteredTitle} id="title" required />
-				<label htmlFor="content">Post Content</label>
+				<h2 htmlFor="content">Post Content</h2>
 				<input id="content" ref={enteredContent} required />
 				<button type="submit">Submit</button>
 			</form>

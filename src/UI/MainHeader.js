@@ -10,43 +10,23 @@ const MainHeader = (props) => {
 	const enteredImage = useSelector((state) => state.User.image);
 
 	return (
-		<header className={classes.header}>
-			<nav className={classes.nav}>
-				<ul className={classes.ul1}>
-					<li className={classes.name}>
-						<Link
-							style={{textDecoration: "none"}}
-							to={isLoggedIn ? "/posts-overview" : "/login"}
-						>
-							<h2>UA HealthCare</h2>
-						</Link>
-					</li>
-					<li className={classes.logo}></li>
-				</ul>
-				<Link 
-
-					style={{textDecoration: "none"}}
-					to={isLoggedIn ? "/posts-overview" : "/login"}
-				>
-					<img style={{width: "50px"}} src={UA} alt="UAPower" />
+		<nav className={classes.nav}>
+			<div className={classes.logo}>
+				<Link to={isLoggedIn ? "/posts-overview" : "/login"}>
+					UA HealthCare
 				</Link>
-				<ul className={classes.ul2}>
-					<li>
-						{isLoggedIn && <NavLink to="/posts-overview">Posts overview</NavLink>}
-
-						{isLoggedIn && <NavLink to="/new-post">New Post</NavLink>}
-						{isLoggedIn && (
-							<React.Fragment>
-								<p className={classes.username}>{enteredName}</p>
-
-								<img className={classes.avatar} alt="" src={enteredImage} />
-								<NavLink to="/user-profile">My Profile</NavLink>
-							</React.Fragment>
-						)}
-					</li>
-				</ul>
-			</nav>
-		</header>
+				<Link to={isLoggedIn ? "/posts-overview" : "/login"}>
+					<img src={UA} alt="UAPower" />
+				</Link>
+			</div>
+			<div className={classes.pages}>
+				{isLoggedIn && <NavLink to="/posts-overview">Posts overview</NavLink>}
+				{isLoggedIn && <NavLink to="/new-post">New Post</NavLink>}
+				<span className={classes.username}>{enteredName}</span>
+				<img className={classes.avatar} alt="" src={enteredImage} />
+				{isLoggedIn && <NavLink to="/user-profile">My Profile</NavLink>}
+			</div>
+		</nav>
 	);
 };
 

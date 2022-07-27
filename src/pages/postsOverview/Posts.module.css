@@ -1,19 +1,29 @@
-
-.header {
-    text-align: center;
-    font-size: 50px;
-}
-
 .posts {
-    text-align: left;
-    font-size: 20px;
-    list-style: none;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px 20px
+	text-align: left;
+	display: flex;
+	text-align: left;
+	align-items: left;
+	justify-content: left;
+	flex-direction: column;
 }
 
-.ul {
-    padding: 5px;
+.posts h2 {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.posts ul {
+	padding: 5px;
+    height: fit-content;
+}
+
+.posts li {
+	list-style: none;
+    height: fit-content;
+}
+
+.posts p {
+	font-size: 40px;
+	text-align: center;
+	margin-top: 40px;
 }

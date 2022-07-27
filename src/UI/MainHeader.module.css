@@ -1,70 +1,49 @@
-.header {
-	height: 50px;
+.nav {
+	display: flex;
+	flex-direction: row;
+	font-size: large;
+	font-family: "Times New Roman", Times, serif;
+	justify-content: space-evenly;
+	align-items: center;
+	color: black;
+	background-color: #f7f5ef;
+	height: 70px;
 }
 
 .logo {
-	font-size: 2rem;
-	color: white;
-}
-
-.nav {
 	display: flex;
-	text-align: center;
-	justify-content: center;
-	margin: 20px auto;
-}
-.ul1 {
-	text-align: left;
-	display: flex;
-	justify-content: left;
-	margin: 0;
-	width: 40%;
-}
-
-.nav li {
-	margin-left: 1.5rem;
-	font-size: 1.25rem;
-	display: flex;
-
-	/* padding: 20px 20px 0 0; */
-}
-
-.ul2 {
-	text-align: right;
-	display: flex;
-	justify-content: right;
-	margin: 0;
-	width: 40%;
+	flex-direction: row;
+	width: 100%;
 }
 
 .nav a {
-	text-decoration: none;
 	color: black;
-	padding: 10px;
-}
-
-.nav h2 {
-	color: black;
-}
-
-.nav a:hover,
-.nav a:active,
-.nav a.active {
-	color: black;
-	padding-bottom: 0.25rem;
 	text-decoration: none;
 }
 
-.username {
-	font-size: 40px;
-	margin-right: 0;
+.logo img {
+	width: 50px;
+	margin-left: 5px;
 }
-.avatar {
+
+
+
+.pages {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.pages img{
 	width: 40px;
+	height: 40px;
 	border-radius: 20px;
-	margin-right: 40px;
 }
 
-.name {
-	text-decoration: none;
+.pages span {
+	font-size: large;
 }
+
+

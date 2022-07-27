@@ -1,43 +1,81 @@
-.div {
-	border: 2px solid grey;
-	width: 60%;
-	
-	border-radius: 20px;
-	
-}
-
-.section {
-	background: rgb(19, 13, 5);
-	background-color: rgb(252, 252, 252);
-	border-radius: 20px;
-	/* padding: 10px; */
-	
-	/* line-height: 0.7em; */
-}
-
-.section button {
+.postItem {
 	display: flex;
-	-ms-flex-align: start;
-	justify-content: space-between;
-	margin: auto;
-	
+	flex-direction: column;
+	align-items: left;
+	flex-basis: auto;
+	text-align: left;
+	justify-content: left;
+	width: 60%;
+	margin-left: 15%;
 }
 
-.section h1 {
-	
-	margin-left: 50px;
-	
+.postTitle {
+	text-align: left;
+	display: flex;
+	align-items: left;
+	flex-direction: row;
+	height: 100px;
 }
 
-.section p {
-	padding: 20px;
-	
-}
-
-.section img {
-	width: 50px;
+.postTitle img {
+	position: relative;
+	top: 70px;
+	width: 30px;
+	height: 30px;
 	border-radius: 20px;
-	margin-top: 25px ;
-	position: fixed;
-	
+	margin-right: 10px;
+}
+
+.postTitle span {
+	font-size: 30px;
+	position: absolute;
+	top: 225px;
+	left: 240px;
+	margin-right: 10px;
+}
+
+.postContent {
+	height: 100%;
+	min-height: 100%;
+	border: solid 0.5px rgb(226, 204, 204);
+	border-radius: 10px;
+	text-align: left;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	flex: 1;
+}
+
+.postContent h4 {
+	text-align: left;
+	font-size: 20px;
+	margin-left: 20px;
+	flex-basis: auto;
+}
+
+.postContent span {
+	margin-left: 30px;
+	font-size:medium;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	text-align: start;
+	flex-basis: auto;
+
+}
+
+.postItemButtons {
+	display: flex;
+	flex-direction: row;
+	margin-top: 5px;
+}
+
+.postItemButtons button {
+	border-radius: 10px;
+	padding: 5px;
+	margin-right: 20px;
+	width: 200px;
+	margin-bottom: 20px;
+	background-color: #ebb002;
+	border: 1px solid black;
 }

@@ -1,71 +1,78 @@
-.overall {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-}
-#my-profile-content {
-	padding: 20px;
-	border: 1px solid black;
-	text-align: center;
-	border-radius: 20px;
-	height: 600px;
-	width: 900px;
-	font-size: 25px;
-}
+.profile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-#my-profile-content img {
-	width: 150px;
-	border: 2px solid black;
-	padding: 20px;
-	border-radius: 20px;
-}
+    align-items: center;
+    width: 80%;
+    height: 10%;
+    margin: 100px auto;
 
-#my-profile-content input {
-	border: none;
-	border-bottom: 2px solid #494844;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-	
-	padding: 0 20px;
-	
-	margin-top: 20px;
-	margin-left: 20px;
-	margin-bottom: 50px;
-	width: 50%;
 
 }
-#my-profile-content label {
-	color: black;
-	font-size: 25px;
-	text-align: left;
-	border: none;
-	border-bottom: 2px solid #494844;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-	padding: 0 20px;
-	
-	margin-top: 20px;
-	margin-left: 20px;
-	margin-bottom: 50px;
-	width: 50%;
-}
-.buttons {
-	justify-content: space-between;
-	width: 200px;
-	margin: auto;
-	
+
+.profile h2 {
+    margin-top: 20px;
+    font-size: 40px;
 }
 
-.btn {
-	border-radius: 10px;
-	margin-right: 10px;
-	background-color: black;
+.profileInput {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    flex-direction: column;
+    padding: 20px;
 
-	
+
 }
 
-.button2 {
-	border-radius: 10px;
-	margin-left: 20px;
+.profileInput input {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: #f7f5ef;
+    width: 100%;
 }
 
+.profileInput label {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: #f7f5ef;
+    width: 100%;
+    text-align: left;
+}
+
+.profileButton {
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.profileButton button {
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: #ebb002;
+    border: 1px solid black;
+    
+}
+
+button :focus {
+    border: 2px solid blueviolet;
+}
+
+.profileButton div {
+    display: flex;
+    flex-direction: row;
+}

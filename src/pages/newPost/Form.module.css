@@ -1,40 +1,20 @@
 .form {
-	margin: 3rem auto;
-	width: 100%;
-	max-width: 55rem;
-	border: 2px solid black;
-	border-radius: 20px;
-	resize: vertical;
-	/* padding: 4rem; */
-	text-align: left;
-	color: white;
-	padding: 12px;
-}
-
-.form label {
-	display: block;
-	color: rgb(7, 5, 5);
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-	font-size: 30px;
 	text-align: center;
-	padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 10%;
+    margin: 100px auto;
 }
 
-.form :focus {
-	border: 3px solid #555;
-	width: 100%;
+.form h2 {
+	margin-top: 20px;
+    font-size: 40px;
 }
-/* .form input {
-	font: inherit;
-	background-color: #f1e1fc;
-	color: #38015c;
-	/* border: 2px solid rgb(238, 255, 0);
-	border-radius: 4px; */
-/* width: ;
-	text-align: left;
-	padding: 0.4rem;
-} */
+
+
 .form input {
 	display: block;
 	width: 100%;
@@ -51,25 +31,13 @@
 	overflow: visible;
 }
 .form button {
-	font: inherit;
-	cursor: pointer;
-	background-color: #f1f1f1;
-	border: 1px solid #8a2b06;
-	color: rgb(19, 16, 16);
-	padding: 0.35rem 2rem;
-	border-radius: 20px;
-	font-weight: bold;
-	margin: 5px;
-	margin-left: auto;
-	margin-right: auto;
-
-	text-align: center;
-	display: flex;
-	justify-content: center;
+	border-radius: 10px;
+    padding: 5px;
+    margin-right: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: #ebb002;
+    border: 1px solid black;
 }
 
-.form button:hover,
-.form button:active {
-	background-color: #641e03;
-	border-color: #641e03;
-}
+

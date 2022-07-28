@@ -9,6 +9,9 @@ USER root
 # install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
+RUN npm install mdb-react-ui-kit
+RUN npm install mdbreact
+RUN npm install axios
 RUN npm install 
 RUN npm install react-scripts@3.4.1 -g 
 

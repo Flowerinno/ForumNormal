@@ -4,6 +4,7 @@ FROM node:18-alpine3.15
 # set working directory
 WORKDIR /app
 
+USER root
 
 # install app dependencies
 COPY package.json ./

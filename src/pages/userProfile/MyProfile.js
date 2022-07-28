@@ -1,9 +1,9 @@
-import {useRef, useState, useCallBack} from "react";
+import {useRef, useState, useCallback} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import classes from "./MyProfile.module.css";
 import getBase64 from "../../services/ImageService";
 import axios from "axios";
-import {useCallback} from "react";
+
 const MyProfile = () => {
 	const [base64, setBase64] = useState();
 
@@ -14,14 +14,22 @@ const MyProfile = () => {
 	const saveHandler = useCallback(() => {
 		const avatar = base64;
 		const username = nameInputRef.current.value;
-
+		const userToken = localStorage.getItem("userToken");
+		dispatch({type: "SAVE", loginName: username, userImage: avatar});
 		axios
-			.put("http://138.68.77.210:8000/my-profile", {
-				username: username,
-				avatar: avatar,
-			})
+			.put(
+				"http://138.68.77.210:8000/api/users/me",
+				{
+					username: username,
+					avatar: avatar,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${userToken}`,
+					},
+				}
+			)
 			.then(function (response) {
-				console.log(response);
 				dispatch({type: "SAVE", loginName: username, userImage: avatar});
 			})
 			.catch(function (error) {
@@ -30,6 +38,7 @@ const MyProfile = () => {
 		nameInputRef.current.value = "";
 	}, [base64, dispatch]);
 	const logoutHandler = () => {
+		localStorage.removeItem("userToken");
 		dispatch({type: "LOGOUT"});
 	};
 

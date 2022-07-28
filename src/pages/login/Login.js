@@ -13,21 +13,38 @@ const Login = () => {
 
 	const history = useHistory();
 
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
 		const enteredName = nameInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-		if (enteredName.trim().length === 0) {
-			return alert("The name field must not be empty!");
-		}
-		axios
+
+		const loginPost = await axios
 			.post("http://138.68.77.210:8000/login", {
 				username: enteredName,
 				password: enteredPassword,
 			})
 			.then(function (response) {
 				console.log(response);
-				dispatch({type: "ISLOGGEDIN", loginName: enteredName});
+				const responseToken = response.data.token;
+				localStorage.setItem("userToken", responseToken);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		const userToken = localStorage.getItem("userToken");
+		const userData = await axios
+			.get("http://138.68.77.210:8000/api/users/me", {
+				headers: {Authorization: `Bearer ${userToken} `},
+			})
+			.then(function (response) {
+				console.log(response);
+				const data = response.data;
+				dispatch({
+					type: "ISLOGGEDIN",
+					loginName: data.username,
+					image: data.avatar,
+					id: data.id,
+				});
 				history.push("/posts-overview");
 			})
 			.catch(function (error) {

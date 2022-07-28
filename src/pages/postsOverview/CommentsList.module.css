@@ -1,7 +1,23 @@
 .comments {
-    list-style: circle outside;
-    border: 2px solid #000;
-    border-radius: 15px;
-    border-width: 1px;
-   
+	list-style: circle outside;
+	border: 2px solid rgb(226, 204, 204);
+	border-radius: 15px;
+	border-width: 1px;
+	width: 600px;
+	height: fit-content;
+    margin-left: 100px;
+    
+}
+
+.comments input {
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+.comments button {
+    border-radius: 10px;
+    background-color: #ebb002;
+    margin-left: 10px;
 }

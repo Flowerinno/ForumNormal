@@ -6,7 +6,7 @@ import axios from "axios";
 
 const PostItem = (props) => {
 	const image = useSelector((state) => state.User.image);
-
+	const loginName = useSelector((state) => state.User.loginName);
 	const [isShown, setIsShown] = useState(false);
 	const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const PostItem = (props) => {
 		<div className={classes.postItem}>
 			<div className={classes.postTitle}>
 				<img alt="" src={image} className={classes.img} />
-				<span>username</span>
+				<span>{loginName}</span>
 			</div>
 			<div className={classes.postContent}>
 				<h4>{title}</h4>

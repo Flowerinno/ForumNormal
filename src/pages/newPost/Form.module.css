@@ -4,9 +4,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 60%;
     height: 10%;
     margin: 100px auto;
+	word-break: break-all;
+	word-wrap: break-word;
 }
 
 .form h2 {
@@ -17,7 +19,7 @@
 
 .form input {
 	display: block;
-	width: 100%;
+	width: 70%;
 	font: inherit;
 	font-size: 1.5rem;
 	padding: 0.5rem;

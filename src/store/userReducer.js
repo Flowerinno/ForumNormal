@@ -1,8 +1,8 @@
 const initialState = {
-	isLoggedIn: true,
+	isLoggedIn: false,
 	loginName: "",
 	image: null,
-	defaultAvatar: null
+	id: ''
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -12,14 +12,15 @@ const UserReducer = (state = initialState, action) => {
 				...state,
 				isLoggedIn: true,
 				loginName: action.loginName,
-				defaultAvatar: action.defaultAvatar
+				image: action.image,
+				id: action.id,
 			};
 		case "SAVE": {
-			const userName = action.userName;
+			const loginName = action.loginName;
 			const userImage = action.userImage;
 			let updated = {};
-			if (userName) {
-				updated.loginName = userName;
+			if (loginName) {
+				updated.loginName = loginName;
 			}
 			if (userImage) {
 				updated.image = userImage;

@@ -22,9 +22,9 @@ const MainHeader = (props) => {
 			<div className={classes.pages}>
 				{isLoggedIn && <NavLink to="/posts-overview">Posts overview</NavLink>}
 				{isLoggedIn && <NavLink to="/new-post">New Post</NavLink>}
+				{isLoggedIn && <NavLink to="/user-profile">My Profile</NavLink>}
 				<span className={classes.username}>{enteredName}</span>
 				<img className={classes.avatar} alt="" src={enteredImage} />
-				{isLoggedIn && <NavLink to="/user-profile">My Profile</NavLink>}
 			</div>
 		</nav>
 	);

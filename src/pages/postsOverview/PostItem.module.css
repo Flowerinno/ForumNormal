@@ -5,37 +5,39 @@
 	flex-basis: auto;
 	text-align: left;
 	justify-content: left;
-	width: 60%;
+	width: fit-content;
 	margin-left: 15%;
+	height: fit-content;
+	word-break: break-all;
+	word-wrap: break-word;
+	width: 500px;
 }
+
+
 
 .postTitle {
 	text-align: left;
 	display: flex;
 	align-items: left;
 	flex-direction: row;
-	height: 100px;
 }
 
 .postTitle img {
-	position: relative;
-	top: 70px;
 	width: 30px;
 	height: 30px;
 	border-radius: 20px;
 	margin-right: 10px;
+	margin-top: 10px;
 }
 
 .postTitle span {
 	font-size: 30px;
-	position: absolute;
-	top: 225px;
-	left: 240px;
-	margin-right: 10px;
+	font-style: italic;
 }
 
 .postContent {
 	height: 100%;
+	width: 500px;
 	min-height: 100%;
 	border: solid 0.5px rgb(226, 204, 204);
 	border-radius: 10px;
@@ -48,20 +50,22 @@
 
 .postContent h4 {
 	text-align: left;
+	width: 100%;
 	font-size: 20px;
-	margin-left: 20px;
+	margin-left: 15px;
 	flex-basis: auto;
 }
 
 .postContent span {
-	margin-left: 30px;
-	font-size:medium;
+	margin-left: 15px;
+	width: 100%;
+	width: fit-content;
+	font-size: medium;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	text-align: start;
 	flex-basis: auto;
-
 }
 
 .postItemButtons {

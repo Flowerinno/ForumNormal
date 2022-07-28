@@ -32,14 +32,15 @@ const CommentsList = (props) => {
 			content: enteredComment,
 			postId: postId,
 		});
+		commentInputRef.current.value = '';
 	}
 	return (
 		<div className={classes.comments}>
-			<p>
+			<div>
 				Create a new comment!
 				<input ref={commentInputRef} />
 				<button onClick={createComment}>Create comment</button>
-			</p>
+			</div>
 
 			<ul>
 				{selectedPost.comments.map((com) => (

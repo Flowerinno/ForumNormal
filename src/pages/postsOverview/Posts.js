@@ -8,12 +8,11 @@ const Posts = (props) => {
 
 	return (
 		<div className={classes.posts}>
-			<h2>Posts overview</h2>
 			{data.length < 1 ? (
 				<p>No posts found </p>
 			) : (
 				<ul>
-					<li>
+					<li >
 						{data?.map((item) => (
 							<PostItem
 								id={item.id}

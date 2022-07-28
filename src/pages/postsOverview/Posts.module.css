@@ -1,10 +1,12 @@
 .posts {
+	margin-top: 20px;
 	text-align: left;
 	display: flex;
 	text-align: left;
 	align-items: left;
 	justify-content: left;
 	flex-direction: column;
+	width: 800px;
 }
 
 .posts h2 {
@@ -14,16 +16,16 @@
 
 .posts ul {
 	padding: 5px;
-    height: fit-content;
+	height: fit-content;
 }
 
 .posts li {
 	list-style: none;
-    height: fit-content;
+	height: fit-content;
 }
 
 .posts p {
 	font-size: 40px;
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 70px;
 }

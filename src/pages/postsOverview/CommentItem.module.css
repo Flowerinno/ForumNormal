@@ -1,5 +1,31 @@
-.div {
-    border: 3px solid #000;
-    border-radius: 2px;
-    border-width: 2px;
+.comment {
+	border: 3px solid rgb(226, 204, 204);
+	border-radius: 15px;
+	border-width: 1px;
+	width: 500px;
+	height: fit-content;
+}
+
+.commentTitle {
+	display: flex;
+	flex-direction: row;
+}
+.commentTitle img {
+	width: 30px;
+	height: 30px;
+	border-radius: 20px;
+	margin-left: 5px;
+    margin-top: 5px;
+}
+
+.commentTitle h3 {
+	font-style: italic;
+	font-size: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.comment span {
+    font-style: italic;
+    margin-left: 40px;
 }

@@ -2,18 +2,13 @@ import CommentItem from "./CommentItem";
 import {useDispatch, useSelector} from "react-redux";
 import classes from "./CommentsList.module.css";
 import {useRef} from "react";
-
+import axios from "axios";
 const CommentsList = (props) => {
 	const dispatch = useDispatch();
 	const commentInputRef = useRef();
 	const posts = useSelector((state) => state.Post.posts);
 
-	const name = useSelector((state) => state.User.loginName);
-	console.log(posts);
-	// let updatedComments = [];
-	// const filteredComments = (postId) => {
-	// 	updatedComments = comments.filter((commentId) => commentId === postId);
-	// };
+	const name = useSelector((state) => state.User.username);
 
 	let selectedPost = posts.filter((post) => post.id === props.postId);
 	if (selectedPost.length === 1) {
@@ -25,15 +20,35 @@ const CommentsList = (props) => {
 	function createComment() {
 		const enteredComment = commentInputRef.current.value;
 		const postId = props.postId;
+		const userToken = localStorage.getItem("userToken");
+		axios
+			.post(
+				`http://138.68.77.210:8000/api/posts/${postId}/comments`,
+				{
+					content: enteredComment,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${userToken}`,
+					},
+				}
+			)
+			.then(function (response) {
+				console.log(response);
+				dispatch({
+					type: "ADDCOMMENT",
+					username: name,
+					content: enteredComment,
+					postId: postId,
+				});
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 
-		dispatch({
-			type: "ADDCOMMENT",
-			loginName: name,
-			content: enteredComment,
-			postId: postId,
-		});
-		commentInputRef.current.value = '';
+		commentInputRef.current.value = "";
 	}
+
 	return (
 		<div className={classes.comments}>
 			<div>
@@ -48,7 +63,7 @@ const CommentsList = (props) => {
 						postId={props.postId}
 						id={com.id}
 						content={com.content}
-						name={com.loginName}
+						name={com.username}
 						key={com.id}
 					/>
 				))}

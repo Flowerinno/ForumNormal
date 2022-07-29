@@ -8,10 +8,16 @@ function PostReducer(state = initialState, action) {
 			const id = action.id;
 			return {...state, posts: state.posts.filter((item) => item.id !== id)};
 		}
+		case "SETPOSTS": {
+			return {
+				...state,
+				posts: action.posts,
+			};
+		}
 		case "ADDPOST": {
 			const data = {
 				title: action.title,
-				enteredContent: action.enteredContent,
+				content: action.enteredContent,
 				id: Math.random(),
 				comments: [],
 			};
@@ -20,9 +26,10 @@ function PostReducer(state = initialState, action) {
 				posts: [...state.posts, data],
 			};
 		}
+
 		case "ADDCOMMENT": {
 			const commentData = {
-				loginName: action.loginName,
+				username: action.username,
 				content: action.content,
 				id: Math.random(),
 				postId: action.postId,

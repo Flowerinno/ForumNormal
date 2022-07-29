@@ -6,7 +6,7 @@ import React from "react";
 
 const MainHeader = (props) => {
 	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
-	const enteredName = useSelector((state) => state.User.loginName);
+	const enteredName = useSelector((state) => state.User.username);
 	const enteredImage = useSelector((state) => state.User.image);
 
 	return (

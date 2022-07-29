@@ -41,7 +41,7 @@ const Login = () => {
 				const data = response.data;
 				dispatch({
 					type: "ISLOGGEDIN",
-					loginName: data.username,
+					username: data.username,
 					image: data.avatar,
 					id: data.id,
 				});

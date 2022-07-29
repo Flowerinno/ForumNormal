@@ -15,7 +15,7 @@ const MyProfile = () => {
 		const avatar = base64;
 		const username = nameInputRef.current.value;
 		const userToken = localStorage.getItem("userToken");
-		dispatch({type: "SAVE", loginName: username, userImage: avatar});
+		dispatch({type: "SAVE", username: username, userImage: avatar});
 		axios
 			.put(
 				"http://138.68.77.210:8000/api/users/me",
@@ -30,7 +30,7 @@ const MyProfile = () => {
 				}
 			)
 			.then(function (response) {
-				dispatch({type: "SAVE", loginName: username, userImage: avatar});
+				dispatch({type: "SAVE", username: username, userImage: avatar});
 			})
 			.catch(function (error) {
 				console.log(error);

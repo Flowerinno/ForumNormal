@@ -1,7 +1,6 @@
 import classes from "./CommentItem.module.css";
-import {useDispatch, useSelector} from "react-redux";
-const CommentItem = ({name, id, content, postId}) => {
-	const avatar = useSelector((state) => state.User.image);
+import {useDispatch} from "react-redux";
+const CommentItem = ({name, id, content, postId, avatar}) => {
 	const dispatch = useDispatch();
 
 	const deleteComment = () => {

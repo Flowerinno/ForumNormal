@@ -35,12 +35,20 @@ const CommentsList = (props) => {
 			)
 			.then(function (response) {
 				console.log(response);
-				dispatch({
-					type: "ADDCOMMENT",
-					username: name,
-					content: enteredComment,
-					postId: postId,
-				});
+				axios
+					.get("http://138.68.77.210:8000/api/posts", {
+						headers: {
+							Authorization: `Bearer ${userToken}`,
+						},
+					})
+					.then(function (response) {
+						const data = response.data.posts;
+						dispatch({type: "SETPOSTS", posts: data});
+						console.log(response);
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -65,6 +73,7 @@ const CommentsList = (props) => {
 						content={com.content}
 						name={com.username}
 						key={com.id}
+						avatar={com.avatar}
 					/>
 				))}
 			</ul>

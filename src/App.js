@@ -7,7 +7,6 @@ import UserProfile from "./pages/userProfile/UserProfile";
 import NewPostForm from "./pages/newPost/NewPostForm";
 import LoggingObserver from "./components/LoggingObserver";
 import SignupPage from "./pages/singup/SignupPage";
-import Footer from "./UI/Footer";
 
 function App() {
 	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
@@ -20,12 +19,14 @@ function App() {
 			</div>
 			<Switch>
 				<Route path="/" exact>
-					<Redirect to="/signup" />
+					<Redirect to="/login" />
 				</Route>
 
-				<Route path="/signup" exact>
-					<SignupPage />
-				</Route>
+				{!isLoggedIn && (
+					<Route path="/signup" exact>
+						<SignupPage />
+					</Route>
+				)}
 				{!isLoggedIn && (
 					<Route path="/login" exact>
 						<LoginPage />
@@ -48,7 +49,6 @@ function App() {
 					</Route>
 				)}
 			</Switch>
-			<Footer />
 		</div>
 	);
 }

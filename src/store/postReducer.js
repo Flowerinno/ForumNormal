@@ -14,18 +14,19 @@ function PostReducer(state = initialState, action) {
 				posts: action.posts,
 			};
 		}
-		case "ADDPOST": {
-			const data = {
-				title: action.title,
-				content: action.enteredContent,
-				id: Math.random(),
-				comments: [],
-			};
-			return {
-				...state,
-				posts: [...state.posts, data],
-			};
-		}
+		// case "ADDPOST": {
+		// 	const data = {
+
+		// 		title: action.title,
+		// 		content: action.enteredContent,
+
+		// 		comments: [],
+		// 	};
+		// 	return {
+		// 		...state,
+		// 		posts: [...state.posts, data],
+		// 	};
+		// }
 
 		case "ADDCOMMENT": {
 			const commentData = {

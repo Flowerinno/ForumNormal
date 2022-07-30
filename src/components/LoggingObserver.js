@@ -8,17 +8,16 @@ const LoggingObserver = () => {
 	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
 
 	const dispatch = useDispatch();
-const userToken = localStorage.getItem("userToken");
+	const userToken = localStorage.getItem("userToken");
 	useEffect(() => {
 		if (isLoggedIn === false && location.pathname !== "/login" && !userToken) {
 			history.push("/login");
 		}
 	}, [isLoggedIn]);
 
-	useEffect(async () => {
-		
+	useEffect(() => {
 		if (userToken) {
-			const userData = await axios
+			axios
 				.get("http://138.68.77.210:8000/api/users/me", {
 					headers: {Authorization: `Bearer ${userToken} `},
 				})

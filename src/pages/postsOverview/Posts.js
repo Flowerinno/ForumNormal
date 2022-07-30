@@ -39,7 +39,10 @@ const Posts = (props) => {
 								key={item.id}
 								title={item.title}
 								content={item.content}
-								data={data}
+								username={item.username}
+								avatar={item.avatar}
+								authorId={item.authorId}
+								time={item.createdAt}
 							/>
 						))}
 					</li>

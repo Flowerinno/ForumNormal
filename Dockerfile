@@ -1,5 +1,6 @@
 # pull official base image
-FROM node:18-alpine3.15
+FROM node:18.2.0
+RUN npm install -g npm@8.9.0
 
 # set working directory
 WORKDIR /app

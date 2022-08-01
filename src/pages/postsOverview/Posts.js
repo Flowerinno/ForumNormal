@@ -11,20 +11,7 @@ const Posts = (props) => {
 	const data = useSelector((state) => state.Post.posts);
 	const userToken = localStorage.getItem("userToken");
 	useEffect(() => {
-		axios
-			.get("http://138.68.77.210:8000/api/posts", {
-				headers: {
-					Authorization: `Bearer ${userToken}`,
-				},
-			})
-			.then(function (response) {
-				const data = response.data.posts;
-				dispatch({type: "SETPOSTS", posts: data});
-				console.log(response);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		dispatch({type: "FETCH_POSTS"});
 	}, []);
 	return (
 		<div className={classes.posts}>

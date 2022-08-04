@@ -13,43 +13,10 @@ const Form = (props) => {
 		e.preventDefault();
 		const title = enteredTitle.current.value;
 		const content = enteredContent.current.value;
-		const userToken = localStorage.getItem("userToken");
 
-		axios
-			.post(
-				"http://138.68.77.210:8000/api/posts",
-				{
-					title: title,
-					content: content,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${userToken}`,
-					},
-				}
-			)
-			.then(function (response) {
-				console.log(response);
+		dispatch({type: "NEW_POST", title, content});
 
-				axios
-					.get("http://138.68.77.210:8000/api/posts", {
-						headers: {
-							Authorization: `Bearer ${userToken}`,
-						},
-					})
-					.then(function (response) {
-						const data = response.data.posts;
-						dispatch({type: "SETPOSTS", posts: data});
-						console.log(response);
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
-				history.push("/posts-overview");
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		history.push("/posts-overview");
 	};
 
 	return (

@@ -17,23 +17,7 @@ const LoggingObserver = () => {
 
 	useEffect(() => {
 		if (userToken) {
-			axios
-				.get("http://138.68.77.210:8000/api/users/me", {
-					headers: {Authorization: `Bearer ${userToken} `},
-				})
-				.then(function (response) {
-					console.log(response);
-					const data = response.data;
-					dispatch({
-						type: "ISLOGGEDIN",
-						username: data.username,
-						image: data.avatar,
-						id: data.id,
-					});
-				})
-				.catch(function (error) {
-					console.log(error);
-				});
+			dispatch({type: "LOG_OBSERVER"})
 		}
 	}, []);
 	return null;

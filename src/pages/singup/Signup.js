@@ -1,31 +1,21 @@
 import {Link} from "react-router-dom";
 import s from "./Signup.module.css";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import {useCallback} from "react";
 import {useRef} from "react";
 import {useHistory} from "react-router-dom";
 const Signup = () => {
+	const dispatch = useDispatch();
 	const usernameInput = useRef();
 	const passwordInput = useRef();
 
 	const history = useHistory();
 
-	const signupHandler = useCallback(() => {
+	const signupHandler = () => {
 		const enteredUsername = usernameInput.current.value;
 		const enteredPassword = passwordInput.current.value;
-		axios
-			.post("http://138.68.77.210:8000/register", {
-				username: enteredUsername,
-				password: enteredPassword,
-			})
-			.then(function (response) {
-				history.push("/login");
-				console.log(response);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-	}, [usernameInput, passwordInput]);
+		dispatch({type: 'SIGNUP_USER', username: enteredUsername, password: enteredPassword})
+	};
 
 	return (
 		<div className={s.signup}>

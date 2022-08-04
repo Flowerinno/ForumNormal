@@ -17,39 +17,9 @@ const Login = () => {
 		e.preventDefault();
 		const enteredName = nameInputRef.current.value;
 		const enteredPassword = passwordInputRef.current.value;
-
-		const loginPost = await axios
-			.post("http://138.68.77.210:8000/login", {
-				username: enteredName,
-				password: enteredPassword,
-			})
-			.then(function (response) {
-				console.log(response);
-				const responseToken = response.data.token;
-				localStorage.setItem("userToken", responseToken);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-		const userToken = localStorage.getItem("userToken");
-		const userData = await axios
-			.get("http://138.68.77.210:8000/api/users/me", {
-				headers: {Authorization: `Bearer ${userToken} `},
-			})
-			.then(function (response) {
-				console.log(response);
-				const data = response.data;
-				dispatch({
-					type: "ISLOGGEDIN",
-					username: data.username,
-					image: data.avatar,
-					id: data.id,
-				});
-				history.push("/posts-overview");
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		dispatch({type: "USER_LOGIN", name: enteredName, password: enteredPassword})
+		history.push("/posts-overview");
+			
 	};
 
 	return (

@@ -20,39 +20,7 @@ const CommentsList = (props) => {
 	function createComment() {
 		const enteredComment = commentInputRef.current.value;
 		const postId = props.postId;
-		const userToken = localStorage.getItem("userToken");
-		axios
-			.post(
-				`http://138.68.77.210:8000/api/posts/${postId}/comments`,
-				{
-					content: enteredComment,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${userToken}`,
-					},
-				}
-			)
-			.then(function (response) {
-				console.log(response);
-				axios
-					.get("http://138.68.77.210:8000/api/posts", {
-						headers: {
-							Authorization: `Bearer ${userToken}`,
-						},
-					})
-					.then(function (response) {
-						const data = response.data.posts;
-						dispatch({type: "SETPOSTS", posts: data});
-						console.log(response);
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		dispatch({type: "NEW_COMMENT", content: enteredComment, postId: postId});
 
 		commentInputRef.current.value = "";
 	}

@@ -11,32 +11,13 @@ const MyProfile = () => {
 
 	const dispatch = useDispatch();
 
-	const saveHandler = useCallback(() => {
+	const saveHandler = () => {
 		const avatar = base64;
 		const username = nameInputRef.current.value;
 		const userToken = localStorage.getItem("userToken");
-		dispatch({type: "SAVE", username: username, userImage: avatar});
-		axios
-			.put(
-				"http://138.68.77.210:8000/api/users/me",
-				{
-					username: username,
-					avatar: avatar,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${userToken}`,
-					},
-				}
-			)
-			.then(function (response) {
-				dispatch({type: "SAVE", username: username, userImage: avatar});
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		dispatch({ type: "SAVE_USER_DATA", avatar: avatar, username: username})
 		nameInputRef.current.value = "";
-	}, [base64, dispatch]);
+	};
 	const logoutHandler = () => {
 		localStorage.removeItem("userToken");
 		dispatch({type: "LOGOUT"});

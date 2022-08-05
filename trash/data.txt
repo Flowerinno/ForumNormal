@@ -1,4 +1,0 @@
-login/password - username, password method : post ;
-myprofile - username/password/avatar change / userid validation avatar method : put ;
-new post - title, content userid validation method : post ;
-new comment - content uservalidation method : put;

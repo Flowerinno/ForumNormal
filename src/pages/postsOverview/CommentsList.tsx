@@ -2,22 +2,30 @@ import CommentItem from "./CommentItem";
 import {useDispatch, useSelector} from "react-redux";
 import classes from "./CommentsList.module.css";
 import {useRef} from "react";
-import axios from "axios";
-const CommentsList = (props) => {
+import { RootReducerType } from "../../store";
+
+type PropsType = {
+	postId: string
+}
+
+const CommentsList = (props: PropsType) => {
 	const dispatch = useDispatch();
-	const commentInputRef = useRef();
-	const posts = useSelector((state) => state.Post.posts);
+	const commentInputRef = useRef<HTMLInputElement>(null);
+	const posts = useSelector((state: RootReducerType) => state.Post.posts);
 
-	const name = useSelector((state) => state.User.username);
+	const name = useSelector((state: RootReducerType) => state.User.username);
 
-	let selectedPost = posts.filter((post) => post.id === props.postId);
-	if (selectedPost.length === 1) {
-		selectedPost = selectedPost[0];
-	} else {
-		return <p>ERROR</p>;
-	}
-	console.log(selectedPost);
+	let filteredPosts = posts.filter((post) => post.id === props.postId);
+	
+	if (filteredPosts.length !== 1) {
+		return <></>;
+	} 
+	const selectedPost = filteredPosts[0];
+	
 	function createComment() {
+		if (commentInputRef.current === null) {
+			return;
+		}
 		const enteredComment = commentInputRef.current.value;
 		const postId = props.postId;
 		dispatch({type: "NEW_COMMENT", content: enteredComment, postId: postId});

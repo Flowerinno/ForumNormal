@@ -1,14 +1,13 @@
-import React from "react";
+
 import PostItem from "./PostItem";
 import classes from "./Posts.module.css";
 import {useSelector} from "react-redux/es/hooks/useSelector";
 import {useDispatch} from "react-redux/es/exports";
-import axios from "axios";
 import {useEffect} from "react";
-
-const Posts = (props) => {
+import { RootReducerType } from "../../store";
+const Posts = () => {
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.Post.posts);
+	const data = useSelector((state: RootReducerType) => state.Post.posts);
 	const userToken = localStorage.getItem("userToken");
 	useEffect(() => {
 		dispatch({type: "FETCH_POSTS"});

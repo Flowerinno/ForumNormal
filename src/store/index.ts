@@ -3,8 +3,15 @@ import createSagaMiddleware from 'redux-saga'
 import UserReducer from "./userReducer";
 import PostReducer from "./postReducer";
 import rootSaga from "../sagas";
+import { UserStateType } from "./types";
+import { PostStateType } from "./types";
 
-const rootReducer = combineReducers({
+export interface RootReducerType {
+	User: UserStateType,
+	Post: PostStateType
+}
+
+const rootReducer = combineReducers<RootReducerType>({
 	User: UserReducer,
 	Post: PostReducer,
 });
@@ -17,5 +24,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
+
 
 export default store;

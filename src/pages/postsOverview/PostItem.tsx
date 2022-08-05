@@ -1,14 +1,24 @@
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./PostItem.module.css";
 import CommentsList from "./CommentsList";
 import {useState} from "react";
-import axios from "axios";
+import { RootReducerType } from "../../store";
 
-const PostItem = (props) => {
+type PropsType = {
+	id: string,
+	content: string,
+	title: string,
+	username: string,
+	avatar: string | null,
+	authorId: string,
+	time: number
+}
+
+const PostItem = (props: PropsType) => {
 	const [isShown, setIsShown] = useState(false);
 	const dispatch = useDispatch();
-	const userId = useSelector((state) => state.User.id);
-	const {id, content, title, username, avatar, authorId, time} = props;
+	const userId = useSelector((state: RootReducerType) => state.User.id);
+	let {id, content, title, username, avatar, authorId, time} = props;
 
 	const date = new Date(time * 1000);
 	
@@ -33,6 +43,9 @@ const PostItem = (props) => {
 	const showComments = () => {
 		setIsShown((prevShow) => !prevShow);
 	};
+	if (avatar === null) {
+		avatar = ''
+	}
 	return (
 		<div className={classes.postItem}>
 			<div className={classes.postTitle}>

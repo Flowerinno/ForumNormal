@@ -1,11 +1,13 @@
 import {useSelector, useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {useHistory, useLocation} from "react-router-dom";
-import axios from "axios";
+import {RootReducerType} from "../store";
 const LoggingObserver = () => {
 	const location = useLocation();
 	const history = useHistory();
-	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
+	const isLoggedIn = useSelector(
+		(state: RootReducerType) => state.User.isLoggedIn
+	);
 
 	const dispatch = useDispatch();
 	const userToken = localStorage.getItem("userToken");
@@ -17,7 +19,7 @@ const LoggingObserver = () => {
 
 	useEffect(() => {
 		if (userToken) {
-			dispatch({type: "LOG_OBSERVER"})
+			dispatch({type: "LOG_OBSERVER"});
 		}
 	}, []);
 	return null;

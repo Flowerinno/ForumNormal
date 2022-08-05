@@ -7,9 +7,12 @@ import UserProfile from "./pages/userProfile/UserProfile";
 import NewPostForm from "./pages/newPost/NewPostForm";
 import LoggingObserver from "./components/LoggingObserver";
 import SignupPage from "./pages/singup/SignupPage";
+import {RootReducerType} from "./store";
 
 function App() {
-	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
+	const isLoggedIn = useSelector(
+		(state: RootReducerType) => state.User.isLoggedIn
+	);
 
 	return (
 		<div>

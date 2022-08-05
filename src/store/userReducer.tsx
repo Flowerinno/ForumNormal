@@ -1,11 +1,18 @@
-const initialState = {
+import {LoginActionType, SaveActionType, LogoutActionType, UserStateType} from "./types";
+
+
+const initialState: UserStateType = {
 	isLoggedIn: false,
 	username: "",
 	image: null,
 	id: "",
 };
 
-const UserReducer = (state = initialState, action) => {
+type ActionType = LoginActionType | SaveActionType | LogoutActionType
+
+
+
+const UserReducer = (state = initialState, action : ActionType) => {
 	switch (action.type) {
 		case "ISLOGGEDIN":
 			return {
@@ -18,7 +25,7 @@ const UserReducer = (state = initialState, action) => {
 		case "SAVE": {
 			const username = action.username;
 			const userImage = action.userImage;
-			let updated = {};
+			let updated: {[key: string]: string} = {};
 			if (username) {
 				updated.username = username;
 			}

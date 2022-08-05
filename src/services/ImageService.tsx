@@ -1,9 +1,9 @@
 
-
-const getBase64 = (file) => {
+//todo fix types
+const getBase64 = (file: any) => {
     return new Promise((resolve) => {
         let fileInfo;
-        let baseURL = "";
+        let baseURL:any = "";
         // Make new FileReader
         let reader = new FileReader();
 

@@ -1,6 +1,6 @@
 import Form from "./Form";
 
-const NewPostForm = (props) => {
+const NewPostForm = () => {
 	return <Form />;
 };
 

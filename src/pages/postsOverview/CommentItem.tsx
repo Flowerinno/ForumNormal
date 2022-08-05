@@ -1,11 +1,23 @@
 import classes from "./CommentItem.module.css";
 import {useDispatch} from "react-redux";
-const CommentItem = ({name, id, content, postId, avatar}) => {
+
+type PropsType = {
+	name: string;
+	id: string;
+	content: string;
+	postId: string;
+	avatar: string | null;
+};
+
+const CommentItem = ({name, id, content, postId, avatar}: PropsType) => {
 	const dispatch = useDispatch();
 
 	const deleteComment = () => {
 		dispatch({type: "DELETECOMMENT", id, postId});
 	};
+	if (avatar === null) {
+		avatar = "";
+	}
 	return (
 		<div className={classes.comment}>
 			<div className={classes.commentTitle}>

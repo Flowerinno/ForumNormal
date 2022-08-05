@@ -1,6 +1,12 @@
 import {call, ForkEffect, put, takeEvery, takeLatest} from "redux-saga/effects";
 import axios from "axios";
-
+import {
+	UserLoginActionType,
+	NewPostActionType,
+	NewCommentActionType,
+	SignupUserActionType,
+	SaveUserDataActionType,
+} from "./sagasTypes";
 
 function* fetchPosts() {
 	try {
@@ -20,16 +26,12 @@ function* fetchPosts() {
 	}
 }
 
-function* userLogin({name, password}){
+function* userLogin({name, password}: UserLoginActionType) {
 	try {
-		const {data} = yield call(
-			axios.post,
-			"http://138.68.77.210:8000/login",
-			{
-				username: name,
-				password: password,
-			}
-		);
+		const {data} = yield call(axios.post, "http://138.68.77.210:8000/login", {
+			username: name,
+			password: password,
+		});
 		const userToken = data.token;
 		localStorage.setItem("userToken", userToken);
 		yield call(fetchUser);
@@ -59,7 +61,7 @@ function* fetchUser() {
 	}
 }
 
-function* newPost({title, content}){
+function* newPost({title, content}: NewPostActionType) {
 	try {
 		const userToken = localStorage.getItem("userToken");
 		yield call(
@@ -81,7 +83,7 @@ function* newPost({title, content}){
 	}
 }
 
-function* newComment({content, postId}) {
+function* newComment({content, postId}: NewCommentActionType) {
 	try {
 		const userToken = localStorage.getItem("userToken");
 		yield call(
@@ -103,7 +105,7 @@ function* newComment({content, postId}) {
 	}
 }
 
-function* signupUser({username, password}){
+function* signupUser({username, password}: SignupUserActionType) {
 	try {
 		yield call(axios.post, "http://138.68.77.210:8000/register", {
 			username: username,
@@ -114,7 +116,7 @@ function* signupUser({username, password}){
 	}
 }
 
-function* saveUserData({avatar, username}) {
+function* saveUserData({avatar, username}: SaveUserDataActionType) {
 	try {
 		const userToken = localStorage.getItem("userToken");
 		yield call(
@@ -136,7 +138,7 @@ function* saveUserData({avatar, username}) {
 	}
 }
 
-function* loggingObserver(action) {
+function* loggingObserver() {
 	try {
 		yield call(fetchUser);
 	} catch (e) {

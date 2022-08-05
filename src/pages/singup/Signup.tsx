@@ -1,17 +1,19 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import s from "./Signup.module.css";
 import { useDispatch } from "react-redux";
-import {useCallback} from "react";
 import {useRef} from "react";
 import {useHistory} from "react-router-dom";
 const Signup = () => {
 	const dispatch = useDispatch();
-	const usernameInput = useRef();
-	const passwordInput = useRef();
+	const usernameInput = useRef<HTMLInputElement>(null);
+	const passwordInput = useRef<HTMLInputElement>(null);
 
 	const history = useHistory();
 
 	const signupHandler = () => {
+		if (usernameInput.current === null || passwordInput.current === null) {
+			return;
+		}
 		const enteredUsername = usernameInput.current.value;
 		const enteredPassword = passwordInput.current.value;
 		dispatch({type: 'SIGNUP_USER', username: enteredUsername, password: enteredPassword})

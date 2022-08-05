@@ -2,20 +2,23 @@ import {useRef, useState, useCallback} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import classes from "./MyProfile.module.css";
 import getBase64 from "../../services/ImageService";
-import axios from "axios";
+import {RootReducerType} from "../../store";
 
 const MyProfile = () => {
-	const [base64, setBase64] = useState();
+	const [base64, setBase64] = useState(null);
 
-	const nameInputRef = useRef();
+	const nameInputRef = useRef<HTMLInputElement>(null);
 
 	const dispatch = useDispatch();
 
 	const saveHandler = () => {
+		if (nameInputRef.current === null) {
+			return;
+		}
 		const avatar = base64;
 		const username = nameInputRef.current.value;
 		const userToken = localStorage.getItem("userToken");
-		dispatch({ type: "SAVE_USER_DATA", avatar: avatar, username: username})
+		dispatch({type: "SAVE_USER_DATA", avatar: avatar, username: username});
 		nameInputRef.current.value = "";
 	};
 	const logoutHandler = () => {
@@ -23,20 +26,25 @@ const MyProfile = () => {
 		dispatch({type: "LOGOUT"});
 	};
 
-	const handleFileInputChange = (e) => {
-		let file = e.target.files[0];
+	const handleFileInputChange = (
+		e: React.InputHTMLAttributes<HTMLInputElement> & {target: HTMLInputElement}
+	) => {
+		if (e.target.files && e.target.files.length) {
+			let file = e.target.files[0];
 
-		getBase64(file)
-			.then((result) => {
-				file["base64"] = result;
-				setBase64(result);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+			getBase64(file)
+				.then((result: any) => {
+					setBase64(result);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	};
-	const enteredImage = useSelector((state) => state.User.image);
-
+	let enteredImage = useSelector((state: RootReducerType) => state.User.image);
+	if (enteredImage === null) {
+		enteredImage = "";
+	}
 	return (
 		<div className={classes.profile}>
 			<h2>My Profile</h2>

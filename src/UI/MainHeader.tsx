@@ -2,12 +2,19 @@ import classes from "./MainHeader.module.css";
 import UA from "./images/UA.png";
 import {Link, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux/es/hooks/useSelector";
-import React from "react";
+import {RootReducerType} from "../store";
 
-const MainHeader = (props) => {
-	const isLoggedIn = useSelector((state) => state.User.isLoggedIn);
-	const enteredName = useSelector((state) => state.User.username);
-	const enteredImage = useSelector((state) => state.User.image);
+const MainHeader: React.FC = () => {
+	const isLoggedIn = useSelector(
+		(state: RootReducerType) => state.User.isLoggedIn
+	);
+	const enteredName = useSelector(
+		(state: RootReducerType) => state.User.username
+	);
+	let enteredImage = useSelector((state: RootReducerType) => state.User.image);
+	if (enteredImage === null) {
+		enteredImage = "";
+	}
 
 	return (
 		<nav className={classes.nav}>

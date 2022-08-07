@@ -1,0 +1,22 @@
+version: '3.0'
+
+services:
+
+  builder:
+    container_name: builder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    command: bash -c "npm ci && npm run build"
+
+  ngnix:
+      image: nginx
+      volumes: 
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/app
+      ports:
+      - 80:80
+      command: bash -c "nginx -g 'daemon off;'"

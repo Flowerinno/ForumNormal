@@ -2,13 +2,14 @@ version: '3.0'
 
 services:
 
-  sample:
-    container_name: sample
+  builder:
+    container_name: builder
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - '.:/app'
       - '/app/node_modules'
-    ports:
+    ports: 
       - 3001:3000
+    command: bash -c "npm ci && npm start"

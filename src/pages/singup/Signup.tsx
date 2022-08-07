@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import s from "./Signup.module.css";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import {useRef} from "react";
 import {useHistory} from "react-router-dom";
 const Signup = () => {
@@ -16,7 +16,12 @@ const Signup = () => {
 		}
 		const enteredUsername = usernameInput.current.value;
 		const enteredPassword = passwordInput.current.value;
-		dispatch({type: 'SIGNUP_USER', username: enteredUsername, password: enteredPassword})
+		dispatch({
+			type: "SIGNUP_USER",
+			username: enteredUsername,
+			password: enteredPassword,
+		});
+		history.push("/login");
 	};
 
 	return (

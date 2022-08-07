@@ -23,7 +23,7 @@ const MainHeader: React.FC = () => {
 					UA HealthCare
 				</Link>
 				<Link to={isLoggedIn ? "/posts-overview" : "/login"}>
-					<img src={UA} alt="UAPower" />
+					{<img src={UA} alt="UAPower" />}
 				</Link>
 			</div>
 			<div className={classes.pages}>
@@ -31,7 +31,7 @@ const MainHeader: React.FC = () => {
 				{isLoggedIn && <NavLink to="/new-post">New Post</NavLink>}
 				{isLoggedIn && <NavLink to="/user-profile">My Profile</NavLink>}
 				<span className={classes.username}>{enteredName}</span>
-				<img className={classes.avatar} alt="" src={enteredImage} />
+				{isLoggedIn && <img className={classes.avatar} alt="" src={enteredImage} />}
 			</div>
 		</nav>
 	);

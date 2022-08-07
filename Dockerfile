@@ -1,6 +1,8 @@
 # pull official base image
 FROM node:18.2.0
 
+USER root
+
 RUN npm install -g npm@8.9.0
 
 # set working directory
@@ -19,7 +21,7 @@ COPY . ./
 
 RUN chown -R node /app/node_modules
 
-USER node
+
 
 
 # start app

@@ -12,4 +12,4 @@ services:
       - '/app/node_modules'
     ports: 
       - 3001:3000
-    command: bash -c "npm ci && npm start"
+    command: bash -c "npm start"

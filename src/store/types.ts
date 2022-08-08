@@ -5,6 +5,7 @@ interface CommentType {
 	id: string;
 	createdAt: number;
 	username: string;
+	postId: string;
 }
 interface PostType {
 	title: string;
@@ -39,10 +40,14 @@ export interface LogoutActionType {
 }
 
 export interface SetPostsActionType {
-    type: "SETPOSTS",
-    posts: PostType[]
+	type: "SETPOSTS";
+	posts: PostType[];
 }
 
+export interface AddCommentActionType {
+	type: "ADD_COMMENT";
+	data: CommentType;
+}
 export interface UserStateType {
 	isLoggedIn: boolean;
 	username: string;

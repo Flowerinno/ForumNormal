@@ -50,6 +50,7 @@ const CommentsList = (props: PropsType) => {
 						name={com.username}
 						key={com.id}
 						avatar={com.avatar}
+						time={com.createdAt}
 					/>
 				))}
 			</ul>

@@ -7,11 +7,27 @@ type PropsType = {
 	content: string;
 	postId: string;
 	avatar: string | null;
+	time: number;
 };
 
-const CommentItem = ({name, id, content, postId, avatar}: PropsType) => {
+const CommentItem = ({name, id, content, postId, avatar, time}: PropsType) => {
 	const dispatch = useDispatch();
 
+	const date = new Date(time * 1000);
+	
+	
+	const updatedDate =
+		(date.getDate() +
+			"/" +
+			(date.getMonth() + 1) +
+			"/" +
+			date.getFullYear() +
+			" " +
+			date.getHours() +
+			":" +
+			date.getMinutes() +
+			":" +
+			date.getSeconds());
 	const deleteComment = () => {
 		dispatch({type: "DELETECOMMENT", id, postId});
 	};
@@ -23,6 +39,7 @@ const CommentItem = ({name, id, content, postId, avatar}: PropsType) => {
 			<div className={classes.commentTitle}>
 				<img alt="" src={avatar} />
 				<h3>{name}</h3>
+				{updatedDate}
 				<button
 					style={{
 						height: "30px",

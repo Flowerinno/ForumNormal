@@ -99,7 +99,7 @@ function* newComment({content, postId}: NewCommentActionType) {
 			}
 		);
 		// yield put({type: "ADDCOMMENT"});
-		yield call(fetchPosts);
+		// yield call(fetchPosts);
 	} catch (e) {
 		console.log(e);
 	}

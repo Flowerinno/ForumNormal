@@ -16,4 +16,7 @@ Style: Css,React-icons.
 Env: Docker, Ngninx , Websockets (Socket.io).
 
 
+Back-end: python.
+
+
 Hosting: Digital ocean droplet.
